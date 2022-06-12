@@ -3,6 +3,7 @@ import "./Subtotal.css"
 import CurrencyFormat from 'react-currency-format'
 import { useDatalayer } from './DataLayerProvider'
 import { useNavigate } from 'react-router-dom'
+import { totalPrice } from './reducer.js'
 
 export const SubTotal = () => {
 
@@ -10,13 +11,13 @@ export const SubTotal = () => {
   const navigate = useNavigate();
 
 //SELECTOR
-  const totalPrice = basket?.reduce((accumulatore, currentvalue) => accumulatore + currentvalue.price, 0 )
-  
+  // const totalPrice = basket?.reduce((accumulatore, currentvalue) => accumulatore + currentvalue.price, 0 )
+
   return (
     <div className='subTotal'>
       <CurrencyFormat
         decimalScale={2}
-        value={totalPrice}
+        value={totalPrice(basket)}
         displayType={"text"}
         thousandSeparator={true}
         prefix={'$'} 
