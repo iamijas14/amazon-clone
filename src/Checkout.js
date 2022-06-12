@@ -6,8 +6,7 @@ import { useDatalayer  } from "./DataLayerProvider"
 
 export const Checkout = () => {
 
-const [{ basket }, dispatch] = useDatalayer();
-console.log(basket)
+const [{ basket, user }, dispatch] = useDatalayer();
 
   return (
     <div className="checkout">
@@ -18,6 +17,7 @@ console.log(basket)
                 alt="amazon ad" 
             />
             <div>
+                <h3>{user ? `hello, ${user?.email.split("@",1)}` : " "}</h3>
                 <h2 className="checkout_title">Your cart</h2>
 
                  {/*{} using this will not render. use () while mapping  */}

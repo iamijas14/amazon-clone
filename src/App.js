@@ -3,10 +3,15 @@ import Header from "./Header"
 import Home from "./Home"
 import Checkout from "./Checkout"
 import Login from "./Login"
+import Payment from './Payment';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import { useDatalayer } from "./DataLayerProvider"
 import { useEffect } from 'react';
 import { auth } from './firebase';
+import { loadStripe } from "@stripe/stripe-js"
+import { Elements } from "@stripe/react-stripe-js"
+
+const promise = loadStripe("pk_test_51L9m55SCQmpVLuslnX2pVxWw4mCEOpHrsBZMFgpumJ4Np7sjSiGCnyH1HOotRN8YeswCiHXT31ZdYkxfNHrg76aZ00dr042Zke")
 
 function App() {
   
@@ -15,7 +20,6 @@ function App() {
   useEffect(() => {
 
     auth.onAuthStateChanged(user => {
-      // console.log(user);
       if(user){
         dispatch({
           type:"SET_USER",
@@ -36,6 +40,12 @@ function App() {
               <Routes>
                 <Route path='/login' element={<Login />}/>
                 <Route path='/checkout' element={<><Header /> <Checkout /></>} />
+                <Route path='/payment' element={<>
+                                                  <Header/> 
+                                                  <Elements stripe={promise}>
+                                                    <Payment />
+                                                  </Elements>
+                                                </>}/>
                 <Route exact path='/' element={<><Header /> <Home /></>} />
               </Routes>
         </div>
