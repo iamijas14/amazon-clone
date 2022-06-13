@@ -4,10 +4,11 @@ import { useDatalayer } from './DataLayerProvider'
 import CartProduct from './CartProduct'
 import { Link, useNavigate } from 'react-router-dom'
 import { totalPrice } from './reducer'
-import instance from './axios'
+// import instance from './axios'
 import CurrencyFormat from 'react-currency-format'
 import { CardElement, useStripe, useElements} from "@stripe/react-stripe-js"
 import axios from "./axios";
+import { db } from './firebase'
 
 
 const Payment = () => {
@@ -33,9 +34,11 @@ const Payment = () => {
             })
             setClientSecret(response.data.clientSecret)
         }
-
-        getClientSecret();
+         getClientSecret();
     }, [basket])
+
+    console.log("THE SECRET KEY:", isClientSecret);
+    console.log(user)
     
 
     const handleSubmit = async (event) => {
@@ -46,14 +49,33 @@ const Payment = () => {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
-        }).then(({paymentIntent}) => {
+        }).then(({ paymentIntent }) => {
+            alert(`paymentIntent (${paymentIntent.id}:${paymentIntent.status})`)
+            //paymentIntent = payment confirmation
             //after getting payment confirmation 
+
+            //send order details to database
+            // db.collection('users')
+            //   .doc(user?.uid)
+            //   .collection('orders')
+            //   .doc(paymentIntent.id)
+            //   .set({
+            //     basket: basket,
+            //     amount: paymentIntent.amount,
+            //     created: paymentIntent.created
+            //   })
+
             setSucceeded(true);
             setError(null);
             setProcessing(false)
 
+            dispatch({
+                type: "EMPTY_BASKET"
+            })
+
             navigate('/orders', { replace: true });
         })
+
     }
 
     const handleChange = event => {
@@ -101,32 +123,33 @@ const Payment = () => {
                 </div>
                 
                 <div className='payment_details'>
+                    
                     <form onSubmit={handleSubmit}>
-                    <div className='payment_priceContainer'>
-                        <CurrencyFormat
-                            decimalScale={2}
-                            value={totalPrice(basket)}
-                            displayType={"text"}
-                            thousandSeparator={true}
-                            prefix={'$'} 
+                        <div className='payment_priceContainer'>
+                            <CurrencyFormat
+                                decimalScale={2}
+                                value={totalPrice(basket)}
+                                displayType={"text"}
+                                thousandSeparator={true}
+                                prefix={'$'} 
 
-                            renderText={(value) => (
-                                <>
-                                    <h3>Order Total: {value}</h3>
-                                </>
+                                renderText={(value) => (
+                                    <>
+                                        <h3>Order Total: {value}</h3>
+                                    </>
                             )} />
                         </div>
+                        <div className='payment_card'>
+                            <CardElement onChange={handleChange} />
 
-                        <CardElement onChange={handleChange} />
-
-                        <div className='payment_priceContainer'>
                             <button disabled = {isProcessing || isDisabled || isSucceeded}>
                                 <span>{isProcessing ? <p>Processing</p> : "BUY NOW"} </span>
                             </button>
-                        </div>            
+                        </div>           
 
                         {isError && <div>{isError}</div>}
                     </form>
+
                 </div>
             
             </div>

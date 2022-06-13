@@ -25,6 +25,24 @@
     flex: 0.2;
 }
 
-.payment_address, .payment_items{
+.payment_address, .payment_items, .payment_details{
     flex: 0.8;
 }
+
+.payment_section:nth-of-type(3){
+    padding-bottom: 50px;
+}
+
+.payment_card{
+    border: 1px solid black;
+    padding: 10px;
+    width: 350px;
+    margin-top: 15px;
+}
+
+.payment_card > button{
+    margin: 10px auto;
+    display: flex;
+    margin-top: 40px;
+}
+
