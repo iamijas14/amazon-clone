@@ -10,18 +10,16 @@
 .order_date{
     position: absolute;
     top: 20px;
-    left: 20px;
 }
 
 .order_id{
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 40px;
     font-size: 17px;
 }
 
 .order_total{
     font-weight: 500;
     text-align: right;
-    color: #f48208;
 }
