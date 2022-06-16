@@ -38,7 +38,7 @@ const Payment = () => {
     }, [basket])
 
     console.log("THE SECRET KEY:", isClientSecret);
-    console.log(user)
+    // console.log(user)
     
 
     const handleSubmit = async (event) => {
@@ -50,20 +50,19 @@ const Payment = () => {
                 card: elements.getElement(CardElement)
             }
         }).then(({ paymentIntent }) => {
-            alert(`paymentIntent (${paymentIntent.id}:${paymentIntent.status})`)
-            //paymentIntent = payment confirmation
-            //after getting payment confirmation 
+            // alert(`paymentIntent (${paymentIntent.id}:${paymentIntent.status})`)
+            //paymentIntent = payment confirmation -> after getting payment confirmation 
 
             //send order details to database
-            // db.collection('users')
-            //   .doc(user?.uid)
-            //   .collection('orders')
-            //   .doc(paymentIntent.id)
-            //   .set({
-            //     basket: basket,
-            //     amount: paymentIntent.amount,
-            //     created: paymentIntent.created
-            //   })
+            db.collection('users')
+              .doc(user?.uid)
+              .collection('orders')
+              .doc(paymentIntent.id)
+              .set({
+                basket: basket,
+                amount: paymentIntent.amount / 100,
+                created: paymentIntent.created
+              })
 
             setSucceeded(true);
             setError(null);
@@ -131,7 +130,7 @@ const Payment = () => {
                                 value={totalPrice(basket)}
                                 displayType={"text"}
                                 thousandSeparator={true}
-                                prefix={'$'} 
+                                prefix={'₹'} 
 
                                 renderText={(value) => (
                                     <>

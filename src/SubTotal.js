@@ -20,7 +20,7 @@ export const SubTotal = () => {
         value={totalPrice(basket)}
         displayType={"text"}
         thousandSeparator={true}
-        prefix={'$'} 
+        prefix={'₹'} 
 
         renderText={(value) => (
           <>

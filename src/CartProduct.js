@@ -25,7 +25,7 @@ const CartProduct = ({id, title, price, rating, image}) => {
                 {title}
             </p>
             <p className='cartProduct_price'>
-                <small>$</small>
+                <small>₹</small>
                 <strong>{price}</strong>
             </p>
             <div className='cartProduct_rating'>

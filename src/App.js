@@ -47,7 +47,7 @@ function App() {
                                                     <Payment />
                                                   </Elements>
                                                 </>}/>
-                <Route path='/orders' element={<Orders />} />
+                <Route path='/orders' element={<><Header /> <Orders /></>} />
                 <Route exact path='/' element={<><Header /> <Home /></>} />
               </Routes>
         </div>

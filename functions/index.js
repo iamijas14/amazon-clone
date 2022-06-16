@@ -22,9 +22,8 @@ app.post("/payments/create", async (request, response) => {
     console.log("Payment request recieved", total);
 
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: total,
-        currency: "usd",
-        payment_method_types: ['Card']
+        amount: Math.round(total),
+        currency: "inr",
     })
 
     response.status(201).send({
@@ -37,4 +36,5 @@ exports.api = functions.https.onRequest(app);
 
 // --Example endpoint
 //http://localhost:5001/clone-41e93/us-central1/api
+
 
