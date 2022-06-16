@@ -4,7 +4,7 @@ import Home from "./Home"
 import Checkout from "./Checkout"
 import Login from "./Login"
 import Payment from './Payment';
-import Orders from './Orders';
+import OrdersDetail from './OrdersDetail';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import { useDatalayer } from "./DataLayerProvider"
 import { useEffect } from 'react';
@@ -47,7 +47,7 @@ function App() {
                                                     <Payment />
                                                   </Elements>
                                                 </>}/>
-                <Route path='/orders' element={<><Header /> <Orders /></>} />
+                <Route path='/orders' element={<><Header /> <OrdersDetail /></>} />
                 <Route exact path='/' element={<><Header /> <Home /></>} />
               </Routes>
         </div>

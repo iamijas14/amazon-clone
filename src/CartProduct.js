@@ -2,7 +2,7 @@ import React from 'react'
 import "./CartProduct.css"
 import { useDatalayer } from './DataLayerProvider'
 
-const CartProduct = ({id, title, price, rating, image}) => {
+const CartProduct = ({id, title, price, rating, image, hideButton}) => {
 
     const [{}, dispatch] = useDatalayer();
 
@@ -33,8 +33,9 @@ const CartProduct = ({id, title, price, rating, image}) => {
                     <p>⭐</p>
                 ))}
             </div>
-
-            <button onClick={removeFromBasket}>Remove from Cart</button>
+            
+            { !hideButton && (<button onClick={removeFromBasket}>Remove from Cart</button>) }
+            
         </div>
 
     </div>
