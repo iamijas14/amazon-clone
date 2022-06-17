@@ -35,10 +35,12 @@
 }
 
 .product > button {
-    background: #f0c14b;
-    border: 1px solid;
+    background: #facc15;
+    width: 150px;
+    height: 30px;
+    border-radius: 25px;
+    border: none;
     margin-top: 10px;
-    border-color: #a88734 #9c7e31 #846a29;
     color: black;
     cursor: pointer;
 }

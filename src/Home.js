@@ -1,65 +1,102 @@
 import "./home.css"
 import  Product  from "./Product"
+import SimpleImageSlider from "react-simple-image-slider";
 
 import React from 'react'
 
 const Home = () => {
+
+    const bannerImages = [
+        { url: "https://m.media-amazon.com/images/I/61jovjd+f9L._SX3000_.jpg" },
+        { url: "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/Clearance/PC-3000._CB648065009_.jpg" },
+        { url: "https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" },
+        { url: "https://m.media-amazon.com/images/I/61-8rBAD68L._SX3000_.jpg" }
+        // { url: "images/5.jpg" },
+        // { url: "images/6.jpg" },
+        // { url: "images/7.jpg" },
+      ]
+
   return (
     <div className="home">
         <div className="home_container">
+
+            <div className="home_image">
+            <SimpleImageSlider 
+                images={bannerImages}
+                width="100%"
+                height={504}
+                showNavs={true}
+            />
+            </div>
+{/* 
             <img 
             className="home_image"
             src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/Clearance/PC-3000._CB648065009_.jpg"
             // src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
             alt="banner" 
-            />
+            /> */}
 
             <div className="home_row">
                 <Product
                 id="1"
-                title="The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback"
-                price={11.96}
+                title="Captain America's shield is a fictional weapon appearing in American comic books published by Marvel Comics. "
+                price={1783.81}
                 rating={5}
-                image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
+                image="https://m.media-amazon.com/images/I/91aNx9uROFL._AC_UX679_.jpg"
                 />
                 <Product
                 id="2"
-                title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
-                price={239.0}
+                title="Marvel Legends Iron Man Electronic Helmet"
+                price={14099.47}
                 rating={4}
-                image="https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
-                />  
-            </div>
-            <div className="home_row">
+                image="https://m.media-amazon.com/images/I/81w6jjXIzJL._AC_SY550_.jpg"
+                /> 
                 <Product
                 id="3"
-                title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor"
-                price={199.99}
-                rating={3}
-                image="https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg"
-                />
+                title="The Noble Collection Harry Potter Wand with Ollivanders Wand Box"
+                price={3146.48}
+                rating={4}
+                image="https://m.media-amazon.com/images/I/71OpgYj98qL._AC_SX425_.jpg"
+                /> 
+            </div>
+
+            <div className="home_row">
                 <Product
                 id="4"
-                title="Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric"
-                price={98.99}
-                rating={5}
-                image="https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$"
+                title="Harry Potter Real Talking Sorting Hat Animated Costume, Brown"
+                price={5001.29}
+                rating={3}
+                image="https://m.media-amazon.com/images/I/71q-xAybk0L._AC_SX425_.jpg"
                 />
                 <Product
                 id="5"
-                title="New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)"
-                price={598.99}
+                title="McFarlane Toys DC Batman: The Batman (Movie) 7 Action Figure"
+                price={2410.69}
+                rating={5}
+                image="	https://m.media-amazon.com/images/I/71RBNYvWq-L._AC_SX679_.jpg"
+                />
+                <Product
+                id="6"
+                title="Ugly Love: A Novel: When Tate Collins meets airline pilot Miles Archer, she doesn't think it's love at first sight."
+                price={839.06}
                 rating={4}
-                image="https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
+                image="https://images-na.ssl-images-amazon.com/images/I/41g9RfNVZBL._SX320_BO1,204,203,200_.jpg"
                 />
             </div>
             <div className="home_row">
                 <Product
-                id="6"
-                title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
-                price={1094.98}
+                id="7"
+                title="Open Road Brands Marvel Heroes in Action Gallery Wrapped Canvas Wall Art - Large Marvel Wall Décor Featuring Spider-Man, Iron Man and Black Panther"
+                price={5243.33}
                 rating={4}
-                image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
+                image="https://m.media-amazon.com/images/I/81s+A5zd9NL._AC_SX679_.jpg"
+                /> 
+                <Product
+                id="8"
+                title="Open Road Brands Marvel Villains Wall Art - Large Marvel Villains Picture Featuring Thanos, Loki, Venom, Green Goblin, Doctor Doom and More"
+                price={4839.93}
+                rating={4}
+                image="https://m.media-amazon.com/images/I/81B6D4fXH8L._AC_SX679_.jpg"
                 /> 
             </div>
         </div>

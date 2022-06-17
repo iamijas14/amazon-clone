@@ -1,6 +1,7 @@
 import "./header.css"
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Link } from "react-router-dom";
 import { useDatalayer } from "./DataLayerProvider";
 import { auth } from './firebase';
@@ -24,6 +25,11 @@ const Header = () => {
                 alt="amazon-logo"
             />
             </Link>
+
+        <div className="header_delivery">
+            <p>Deliver to {user?.email.split("@", 1)} </p>
+            <p><LocationOnIcon /><strong>Bengaluru 560039</strong></p>
+        </div>
 
         <div className="header_search">
             <input 
