@@ -9,6 +9,7 @@ export const Checkout = () => {
 const [{ basket, user }, dispatch] = useDatalayer();
 
   return (
+    <>
     <div className="checkout">
         <div className="checkout_left">
             <img
@@ -35,8 +36,11 @@ const [{ basket, user }, dispatch] = useDatalayer();
 
         <div className="checkout_right">
             <SubTotal />
-        </div> 
+        </div>
     </div>
+
+    {basket.length === 0 && <h1 className="checkout_empty" >Cart is emtpy </h1>}
+    </>
   )
 }
 

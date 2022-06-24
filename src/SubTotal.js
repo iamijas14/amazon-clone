@@ -4,8 +4,10 @@ import CurrencyFormat from 'react-currency-format'
 import { useDatalayer } from './DataLayerProvider'
 import { useNavigate } from 'react-router-dom'
 import { totalPrice } from './reducer.js'
+import { DisabledByDefault } from '@mui/icons-material'
+import { toBeEmpty } from '@testing-library/jest-dom/dist/matchers'
 
-export const SubTotal = () => {
+export const SubTotal = ({ disableButton }) => {
 
   const [{basket}, dispatch] = useDatalayer();
   const navigate = useNavigate();
@@ -34,9 +36,11 @@ export const SubTotal = () => {
           </>
         )
         }
-      />  
+      /> 
 
-      <button onClick={() => navigate("/payment") }>Proceed to checkout</button>
+      {basket.length === 0 ? <button className="button_off" disabled={true}>Proceed to checkout
+      </button> : <button onClick={() => navigate("/payment") }>Proceed to checkout
+      </button>} 
     </div>
   )
 }

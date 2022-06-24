@@ -11,9 +11,6 @@ const Home = () => {
         { url: "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/Clearance/PC-3000._CB648065009_.jpg" },
         { url: "https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" },
         { url: "https://m.media-amazon.com/images/I/61-8rBAD68L._SX3000_.jpg" }
-        // { url: "images/5.jpg" },
-        // { url: "images/6.jpg" },
-        // { url: "images/7.jpg" },
       ]
 
   return (

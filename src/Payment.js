@@ -4,7 +4,6 @@ import { useDatalayer } from './DataLayerProvider'
 import CartProduct from './CartProduct'
 import { Link, useNavigate } from 'react-router-dom'
 import { totalPrice } from './reducer'
-// import instance from './axios'
 import CurrencyFormat from 'react-currency-format'
 import { CardElement, useStripe, useElements} from "@stripe/react-stripe-js"
 import axios from "./axios";
@@ -43,14 +42,13 @@ const Payment = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setProcessing(true); //it blocks the button once you hit submit to avoid submitting mpre than once
+        setProcessing(true); //it blocks the button once you hit submit to avoid submitting m0re than once
 
         const payload = await stripe.confirmCardPayment(isClientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
         }).then(({ paymentIntent }) => {
-            // alert(`paymentIntent (${paymentIntent.id}:${paymentIntent.status})`)
             //paymentIntent = payment confirmation -> after getting payment confirmation 
 
             //send order details to database

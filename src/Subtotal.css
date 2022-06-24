@@ -31,3 +31,7 @@
     color: #111;
     cursor: pointer;
 }
+
+.button_off{
+    opacity: 0.6;
+}
